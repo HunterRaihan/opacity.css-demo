@@ -1,0 +1,505 @@
+  //Background & Colors
+  @each $selector,
+  $value in $background-colors {
+      .bg_#{$selector} {
+          background: #{$value} !important;
+      }
+      .color_#{$selector} {
+          color: #{$value} !important;
+      }
+  }
+  
+  //Display
+  @each $selector,
+  $value in $display {
+      .d_#{$selector} {
+          display: #{$value};
+      }
+  }
+  
+  //Text transform
+  @each $selector,
+  $value in $textstyle {
+      .#{$selector} {
+          text-transform: $value;
+      }
+  }
+  
+  //Overflow
+  @each $value in $overflow {
+      .of_#{$value} {
+          overflow: $value;
+      }
+  }
+  
+  //Z index
+  @each $value in $zindex {
+      .z_#{$value} {
+          z-index: #{$value};
+      }
+  }
+  
+  //Position
+  @each $position in $positions {
+      .#{$position} {
+          position: #{$position};
+      }
+  }
+  
+  @each $selector,
+  $value in $savedposition {
+      .#{$selector}_top {
+          position: $value;
+          top: 0;
+      }
+      .#{$selector}_bottom {
+          position: $value;
+          bottom: 0;
+      }
+  }
+  
+  //Font weight
+  @each $values in $fontwights {
+      .fw_#{$values} {
+          font-weight: $values;
+      }
+  }
+  
+  //Font size
+  @each $selector,
+  $value in $fontsizes {
+      .fz_#{$selector} {
+          font-size: $value;
+      }
+  }
+  
+  //Text alignment
+  @each $value in $text-align {
+      .t_#{$value} {
+          text-align: #{$value};
+      }
+  }
+  
+  //Vertical alignment
+  @each $value in $vertical-align {
+      .v_#{$value} {
+          vertical-align: #{$value};
+      }
+  }
+  
+  //Heights & Width
+  @each $selector,
+  $value in $heights-widths {
+      .h_#{$selector} {
+          height: #{$value};
+      }
+      .w_#{$selector} {
+          width: #{$value};
+      }
+  }
+  
+  .vh {
+      min-height: 100vh;
+  }
+  
+  @each $selector,
+  $value in $shadows {
+      .shadow_#{$selector} {
+          box-shadow: $value !important;
+      }
+  }
+  
+  .has_shadow {
+      box-shadow: 0 8px 24px rgba(51, 51, 51, 0.125);
+  }
+  
+  @each $value in $floats {
+    .fl_#{$value} {
+        float: $value;
+    }
+  }
+
+  @each $selector,
+  $value in $borderradius {
+      .brs_#{$selector} {
+          border-radius: $value;
+      }
+  }
+  
+  @each $selector,
+  $value in $gaps {
+      .g_#{$selector} {
+          gap: $value !important;
+      }
+  }
+  
+  @each $selector,
+  $value in $alignjustify {
+      .ac_#{$selector} {
+          align-content: $value !important;
+      }
+      .ai_#{$selector} {
+          align-items: $value !important;
+      }
+      .as_#{$selector} {
+          align-self: $value !important;
+      }
+      .jc_#{$selector} {
+          justify-content: $value !important;
+      }
+      .ji_#{$selector} {
+          justify-items: $value !important;
+      }
+      .js_#{$selector} {
+          justify-self: $value !important;
+      }
+  }
+  
+  .f_center {
+      @extend %flexcenter;
+  }
+  
+  .g_center {
+      display: grid;
+      place-items: center;
+  }
+  
+  .p_center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+  
+  .wrap {
+      flex-wrap: wrap;
+  }
+  
+  .nowrap {
+      flex-wrap: nowrap;
+  }
+  
+  .row,
+  .column {
+      display: flex;
+  }
+  
+  .row {
+      flex-direction: row;
+  }
+  
+  .column {
+      flex-direction: column;
+  }
+  
+  img.fit,
+  .fit {
+      width: 100% !important;
+      height: 100%!important;
+      object-fit: cover!important;
+      object-position: center!important;
+  }
+  
+  img.resp,
+  .resp {
+      max-width: 100% !important;
+      vertical-align: middle;
+      height: auto !important;
+  }
+  
+  @each $selector,
+  $value in $marginpadding {
+      .m_#{$selector} {
+          margin: $value !important;
+      }
+      .mt_#{$selector} {
+          margin-top: $value !important;
+      }
+      .mb_#{$selector} {
+          margin-bottom: $value !important;
+      }
+      .my_#{$selector} {
+          @extend .mt_#{$selector};
+          @extend .mb_#{$selector};
+      }
+      .ml_#{$selector} {
+          margin-left: $value !important;
+      }
+      .mr_#{$selector} {
+          margin-right: $value !important;
+      }
+      .mx_#{$selector} {
+          @extend .mr_#{$selector};
+          @extend .ml_#{$selector};
+      }
+      .p_#{$selector} {
+          padding: $value !important;
+      }
+      .pt_#{$selector} {
+          padding-top: $value !important;
+      }
+      .pb_#{$selector} {
+          padding-bottom: $value !important;
+      }
+      .py_#{$selector} {
+          @extend .pt_#{$selector};
+          @extend .pb_#{$selector};
+      }
+      .pl_#{$selector} {
+          padding-left: $value !important;
+      }
+      .pr_#{$selector} {
+          padding-right: $value !important;
+      }
+      .px_#{$selector} {
+          @extend .pr_#{$selector};
+          @extend .pl_#{$selector};
+      }
+  }
+  
+  //Media Queries
+  @media(min-width: $sm) {
+      //Margin & Padding
+      @each $selector,
+      $value in $marginpadding {
+          .sm\:m_#{$selector} {
+              margin: $value !important;
+          }
+          .sm\:mt_#{$selector} {
+              margin-top: $value !important;
+          }
+          .sm\:mb_#{$selector} {
+              margin-bottom: $value !important;
+          }
+          .sm\:my_#{$selector} {
+              @extend .sm\:mt_#{$selector};
+              @extend .sm\:mb_#{$selector};
+          }
+          .sm\:ml_#{$selector} {
+              margin-left: $value !important;
+          }
+          .sm\:mr_#{$selector} {
+              margin-right: $value !important;
+          }
+          .sm\:mx_#{$selector} {
+              @extend .sm\:mr_#{$selector};
+              @extend .sm\:ml_#{$selector};
+          }
+          .sm\:p_#{$selector} {
+              padding: $value !important;
+          }
+          .sm\:pt_#{$selector} {
+              padding-top: $value !important;
+          }
+          .sm\:pb_#{$selector} {
+              padding-bottom: $value !important;
+          }
+          .sm\:py_#{$selector} {
+              @extend .sm\:pt_#{$selector};
+              @extend .sm\:pb_#{$selector};
+          }
+          .sm\:pl_#{$selector} {
+              padding-left: $value !important;
+          }
+          .sm\:pr_#{$selector} {
+              padding-right: $value !important;
+          }
+          .sm\:px_#{$selector} {
+              @extend .sm\:pr_#{$selector};
+              @extend .sm\:pl_#{$selector};
+          }
+      }
+      //Alignments & Justify
+      @each $selector,
+      $value in $alignjustify {
+          .sm\:ac_#{$selector} {
+              align-content: $value !important;
+          }
+          .sm\:ai_#{$selector} {
+              align-items: $value !important;
+          }
+          .sm\:as_#{$selector} {
+              align-self: $value !important;
+          }
+          .sm\:jc_#{$selector} {
+              justify-content: $value !important;
+          }
+          .sm\:ji_#{$selector} {
+              justify-items: $value !important;
+          }
+          .sm\:js_#{$selector} {
+              justify-self: $value !important;
+          }
+      }
+      //Gap
+      @each $selector,
+      $value in $gaps {
+          .sm\:g_#{$selector} {
+              gap: $value !important;
+          }
+      }
+  }
+  
+  @media(min-width: $md) {
+      //Margin & Padding
+      @each $selector,
+      $value in $marginpadding {
+          .md\:m_#{$selector} {
+              margin: $value !important;
+          }
+          .md\:mt_#{$selector} {
+              margin-top: $value !important;
+          }
+          .md\:mb_#{$selector} {
+              margin-bottom: $value !important;
+          }
+          .md\:my_#{$selector} {
+              @extend .md\:mt_#{$selector};
+              @extend .md\:mb_#{$selector};
+          }
+          .md\:ml_#{$selector} {
+              margin-left: $value !important;
+          }
+          .md\:mr_#{$selector} {
+              margin-right: $value !important;
+          }
+          .md\:mx_#{$selector} {
+              @extend .md\:mr_#{$selector};
+              @extend .md\:ml_#{$selector};
+          }
+          .md\:p_#{$selector} {
+              padding: $value !important;
+          }
+          .md\:pt_#{$selector} {
+              padding-top: $value !important;
+          }
+          .md\:pb_#{$selector} {
+              padding-bottom: $value !important;
+          }
+          .md\:py_#{$selector} {
+              @extend .md\:pt_#{$selector};
+              @extend .md\:pb_#{$selector};
+          }
+          .md\:pl_#{$selector} {
+              padding-left: $value !important;
+          }
+          .md\:pr_#{$selector} {
+              padding-right: $value !important;
+          }
+          .md\:px_#{$selector} {
+              @extend .md\:pr_#{$selector};
+              @extend .md\:pl_#{$selector};
+          }
+      }
+      //Alignments & Justify
+      @each $selector,
+      $value in $alignjustify {
+          .md\:ac_#{$selector} {
+              align-content: $value !important;
+          }
+          .md\:ai_#{$selector} {
+              align-items: $value !important;
+          }
+          .md\:as_#{$selector} {
+              align-self: $value !important;
+          }
+          .md\:jc_#{$selector} {
+              justify-content: $value !important;
+          }
+          .md\:ji_#{$selector} {
+              justify-items: $value !important;
+          }
+          .md\:js_#{$selector} {
+              justify-self: $value !important;
+          }
+      }
+      //Gap
+      @each $selector,
+      $value in $gaps {
+          .md\:g_#{$selector} {
+              gap: $value !important;
+          }
+      }
+  }
+  
+  @media(min-width: $lg) {
+      //Margin & Padding
+      @each $selector,
+      $value in $marginpadding {
+          .lg\:m_#{$selector} {
+              margin: $value !important;
+          }
+          .lg\:mt_#{$selector} {
+              margin-top: $value !important;
+          }
+          .lg\:mb_#{$selector} {
+              margin-bottom: $value !important;
+          }
+          .lg\:my_#{$selector} {
+              @extend .lg\:mt_#{$selector};
+              @extend .lg\:mb_#{$selector};
+          }
+          .lg\:ml_#{$selector} {
+              margin-left: $value !important;
+          }
+          .lg\:mr_#{$selector} {
+              margin-right: $value !important;
+          }
+          .lg\:mx_#{$selector} {
+              @extend .lg\:mr_#{$selector};
+              @extend .lg\:ml_#{$selector};
+          }
+          .lg\:p_#{$selector} {
+              padding: $value !important;
+          }
+          .lg\:pt_#{$selector} {
+              padding-top: $value !important;
+          }
+          .lg\:pb_#{$selector} {
+              padding-bottom: $value !important;
+          }
+          .lg\:py_#{$selector} {
+              @extend .lg\:pt_#{$selector};
+              @extend .lg\:pb_#{$selector};
+          }
+          .lg\:pl_#{$selector} {
+              padding-left: $value !important;
+          }
+          .lg\:pr_#{$selector} {
+              padding-right: $value !important;
+          }
+          .lg\:px_#{$selector} {
+              @extend .lg\:pr_#{$selector};
+              @extend .lg\:pl_#{$selector};
+          }
+      }
+      //Alignments & Justify
+      @each $selector,
+      $value in $alignjustify {
+          .lg\:ac_#{$selector} {
+              align-content: $value !important;
+          }
+          .lg\:ai_#{$selector} {
+              align-items: $value !important;
+          }
+          .lg\:as_#{$selector} {
+              align-self: $value !important;
+          }
+          .lg\:jc_#{$selector} {
+              justify-content: $value !important;
+          }
+          .lg\:ji_#{$selector} {
+              justify-items: $value !important;
+          }
+          .lg\:js_#{$selector} {
+              justify-self: $value !important;
+          }
+      }
+      //Gap
+      @each $selector,
+      $value in $gaps {
+          .lg\:g_#{$selector} {
+              gap: $value !important;
+          }
+      }
+  }

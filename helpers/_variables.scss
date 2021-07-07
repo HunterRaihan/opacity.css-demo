@@ -1,0 +1,58 @@
+  //Breakpoints
+  $sm: 48rem !default;
+  $md: 62rem !default;
+  $lg: 75rem !default;
+
+
+  //Layout Grid
+  $grid-columns: 12 !default;
+  $rowName: 'o_grid';
+  $containerName: 'container';
+  $columnName: 'col';
+  $gap: .75rem;
+
+  //Colors
+  $primary: hsl(238, 38%, 46%);
+  $light: hsl(0, 0%, 100%);
+  $secondary: hsl(217, 15%, 83%);
+  $success: hsl(165, 58%, 55%);
+  $info:hsl(214, 79%, 65%);
+  $warning: hsl(43, 87%, 57%);
+  $danger: hsl(354, 81%, 63%);
+  $dark: hsl(210, 10%, 23%);
+
+
+  //Borders radius
+  $border-radius: 0.5rem;
+
+  //Button
+  $btn-shadow-opacity: .1;
+  $btn-padding: .575rem 1.125rem;
+  $btn-border-radius: 0.225rem;
+  $button-sm: .285rem .75rem;
+  $button-lg: 1rem 2.25rem;
+
+  //Badge
+  $badge-padding: 0.25rem 0.65rem;
+  $badge-border-radius: $border-radius;
+
+  //Accordion
+  $accordion-padding: .875rem;
+
+  //Breadcrumbs
+  $breadcrumbs-padding: .5rem 1rem;
+  $breadcrumbs-size: 1.2rem;
+
+  //Pagination
+  $pagination-padding:.5rem .75rem;
+
+  //Progress
+  $progress-height: 1.15rem;
+  $progress-bg: var(--primary-color);
+
+  //Modal
+  $modal-bg: rgba(0, 0, 0, 0.15);
+  
+  //ToolTip
+  $tooltip-background: var(--dark-color);
+  $tooltip-color: var(--light-color);

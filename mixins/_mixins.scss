@@ -1,0 +1,45 @@
+@mixin solidtheme($theme: $primary) {
+    background: $theme;
+    box-shadow: 0px 8px 24px rgba($theme, $btn-shadow-opacity);
+    border-color: $theme;
+    color: $light !important;
+}
+
+@mixin outlinetheme($theme: $primary) {
+    box-shadow: 0px 8px 24px rgba($theme, $btn-shadow-opacity);
+    color: $theme !important;
+    border-color: $theme !important;
+}
+
+@mixin outlineHover($theme: $primary) {
+    background: $theme;
+    color: $light !important;
+}
+
+@mixin flex($justify: center) {
+    display: flex;
+    align-items: center;
+    justify-content: $justify;
+}
+
+%reset {
+    margin: 0;
+    padding: 0;
+}
+
+%flexcenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+%navicon {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: 100% 100% !important;
+    background-repeat: no-repeat !important;
+}
+
+

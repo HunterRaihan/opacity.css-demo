@@ -1,0 +1,71 @@
+:root {
+    --primary-color: #{$primary};
+    --light-color: #{$light};
+    --secondary-color: #{$secondary};
+    --success-color: #{$success};
+    --info-color: #{$info};
+    --warning-color: #{$warning};
+    --danger-color: #{$danger};
+    --dark-color: #{$dark};
+    --primary-color-darker: hsl(196, 68%, 54%);
+    --secondary-color-darker: hsl(215, 13%, 70%);
+    --success-color-darker: hsl(165, 55%, 48%);
+    --info-color-darker: hsl(214, 68%, 58%);
+    --warning-color-darker: hsl(39, 97%, 62%);
+    --danger-color-darker: hsl(354, 67%, 56%);
+    --primary-color-lighter: hsl(196, 78%, 81%);
+    --secondary-color-lighter: hsl(214, 16%, 92%);
+    --success-color-lighter: hsl(165, 58%, 75%);
+    --info-color-lighter: hsl(214, 79%, 85%);
+    --warning-color-lighter: hsl(43, 100%, 86%);
+    --danger-color-lighter: hsl(354, 81%, 83%);
+    --secondary-color-darkest: hsl(215, 11%, 30%);
+    --secondary-color-lightest: hsl(220, 1%, 98%);
+    --e-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    --e-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    --e-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    --e-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    --e-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    --e-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+    --e-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --e-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+    --e-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+    --e-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+    --e-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+    --e-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+    --e-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    --e-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+    --e-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+    --e-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+    --e-in-out-expo: cubic-bezier(1, 0, 0, 1);
+    --e-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    --font-montserrat: "montserrat", "Roboto", "Open Sans", sans serif;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+
+  $light-background: #f2ece4;
+  $light-text: #036;
+  $dark-background: #000000;
+  $dark-text: #d2e1dd;
+
+  
+  @mixin theme-colors($light-theme: true) {
+    @if $light-theme {
+      background-color: $light-background;
+      color: $light-text;
+    } @else {
+      background-color: $dark-background;
+      color: $dark-text;
+    }
+  }
+  
+  body {
+    @include theme-colors($light-theme: true);
+    &[data-theme="dark"]  {
+      @include theme-colors($light-theme: false);
+    }
+  }
+
+
+

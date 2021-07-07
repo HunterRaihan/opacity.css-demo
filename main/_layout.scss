@@ -1,0 +1,117 @@
+
+.#{$containerName} {
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    max-width: 82.5rem;
+    width: 100%;
+}
+
+.#{$containerName}_full {
+    padding: 0 1.25rem;
+    margin: 0 auto;
+    width: 100%;
+}
+
+// Main Grid Layout
+.#{$rowName} {
+    display: grid;
+    grid-template-columns: repeat($grid-columns, 1fr);
+    grid-template-rows: auto;
+    gap: $gap;
+    >[class*="#{$columnName}"] {
+        margin: 0;
+        max-width: 100%;
+    }
+}
+
+@for $i from 1 through $grid-columns {
+    .xs\:#{$columnName}-#{$i},
+    .#{$columnName}-#{$i} {
+        grid-column-start: span #{$i};
+        grid-column-end: span #{$i};
+    }
+}
+
+@media(min-width: $sm) {
+    @for $i from 1 through $grid-columns {
+        .sm\:#{$columnName}-#{$i} {
+            grid-column-start: span #{$i};
+            grid-column-end: span #{$i};
+        }
+    }
+}
+
+@media(min-width: $md) {
+    @for $i from 1 through $grid-columns {
+        .md\:#{$columnName}-#{$i} {
+            grid-column-start: span #{$i};
+            grid-column-end: span #{$i};
+        }
+    }
+}
+
+@media(min-width: $lg) {
+    @for $i from 1 through $grid-columns {
+        .lg\:#{$columnName}-#{$i} {
+            grid-column-start: span #{$i} !important;
+            grid-column-end: span #{$i} !important;
+        }
+    }
+}
+
+// End Main Layout
+// Gap Between & Order
+@for $i from 0 through $grid-columns {
+    //Order
+    .order_#{$i} {
+        order: #{$i} !important;
+    }
+    .order_first {
+        order: -9999;
+    }
+    .order_last {
+        order: 9999;
+    }
+}
+
+@media(min-width: $sm) {
+    @for $i from 1 through $grid-columns {
+        .sm\:order_#{$i} {
+            order: #{$i} !important;
+        }
+        .sm\:order_first {
+            order: -9999;
+        }
+        .sm\:order_last {
+            order: 9999;
+        }
+    }
+}
+
+@media(min-width: $md) {
+    @for $i from 1 through $grid-columns {
+        .md\:order_#{$i} {
+            order: #{$i} !important;
+        }
+        .md\:order_first {
+            order: -9999;
+        }
+        .md\:order_last {
+            order: 9999;
+        }
+    }
+}
+
+@media(min-width: $lg) {
+    @for $i from 1 through $grid-columns {
+        .lg\:order_#{$i} {
+            order: #{$i} !important;
+        }
+        .lg\:order_first {
+            order: -9999 !important;
+        }
+        .lg\:order_last {
+            order: 9999 !important;
+        }
+    }
+}

@@ -1,0 +1,43 @@
+$background-colors:( "primary": $primary, "secondary": $secondary, "success": $success, "info": $info, "warning": $warning, "danger": $danger, "light": $light, "dark": $dark, );
+$display:( "b": block, "ib": inline-block, "f": flex, "g": grid, "none": none);
+$textstyle:( "ttu": uppercase, "ttc": capitalize, "ttl": lowercase, );
+$overflow: auto,
+visible,
+hidden,
+scroll;
+$zindex: 1,
+2,
+3,
+99,
+100,
+1000,
+1999,
+2000;
+$positions: absolute,
+fixed,
+sticky,
+relative;
+$savedposition: ( "fixed": fixed, "sticky": sticky);
+$fontwights: 100,
+200,
+300,
+400,
+500,
+600,
+700,
+900;
+$fontsizes: ( "1": .75rem, "2": .875rem, "3": 1rem, "4": 1.125rem, "5": 1.25rem, "6": 1.5rem, "7": 2rem, "8": 2.5rem, "9":3rem);
+$text-align: left,
+center,
+right,
+justify;
+$vertical-align: top,
+middle,
+baseline;
+$heights-widths: ( "auto": auto, "25": 25%, "33": 33%, "50": 50%, "70": 70%, "75": 75%, "100": 100%);
+$shadows: ( "xs": 0 .125rem .25rem rgba(0,0,0,.075), "sm": 0 .5rem 1rem rgba(0,0,0,.15), "md": 0 1rem 3rem rgba(0,0,0,.175), "lg": 0 1rem 3rem rgba(0,0,0,.2), "none": none);
+$borderradius: ( "1": .25rem, "2": .5rem, "3": .75rem, "4": 1rem, "5": 1.5rem, "6": 2rem, "circle": 50%x);
+$alignjustify: ( "str" :stretch, "start" :flex-start, "center" :center, "end" :flex-end, "between" :space-between, "around": space-around, "even": space-evenly);
+$marginpadding: ( "0": 0, "auto": auto, "1": .25rem, "2": .5rem, "3": 1rem, "4": 1.5rem, "5": 2rem, "6": 2.5rem, "7": 3rem);
+$gaps: ("1": .5rem, "2": 1.25rem,"3": 1.5rem,"4": 2rem,"5": 2.5rem, "6":3rem, "7":3.5rem);
+$floats: left, right;

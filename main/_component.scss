@@ -1,0 +1,609 @@
+//Button
+%btn {
+    display: inline-block;
+    vertical-align: middle;
+    padding: $btn-padding;
+    border-radius: $btn-border-radius;
+    cursor: pointer;
+    user-select: none;
+    border: none;
+    border: 1.6px solid transparent;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 1.5;
+    transition: all .3s var(--e-out-quad);
+    &.sm {
+        padding: $button-sm;
+    }
+    &.lg {
+        padding: $button-lg;
+    }
+    &.block {
+        display: block;
+        width: 100%;
+    }
+}
+
+a[class^='btn_'],
+[class^='btn_'] {
+    @extend %btn;
+    &:hover {
+        filter: brightness(87%);
+    }
+}
+
+[class^='btn_outline-'] {
+    @extend %btn;
+    background: transparent;
+    filter: brightness(100%)!important;
+}
+
+.btn_primary {
+    @include solidtheme;
+}
+
+.btn_success {
+    @include solidtheme($theme: $success);
+}
+
+.btn_danger {
+    @include solidtheme($theme: $danger);
+}
+
+.btn_warning {
+    @include solidtheme($theme: $warning);
+}
+
+.btn_info {
+    @include solidtheme($theme: $info);
+}
+
+.btn_dark {
+    @include solidtheme($theme: $dark);
+}
+
+.btn_light {
+    color: var(--dark-color)!important;
+    @include solidtheme($theme: $secondary);
+}
+
+.btn_outline-primary {
+    @include outlinetheme;
+    &:hover,
+    &:focus {
+        @include outlineHover;
+    }
+}
+
+.btn_outline-secondary {
+    @include outlinetheme($theme: $secondary);
+    &:hover,
+    &:focus {
+        @include outlineHover($theme: $secondary);
+        color: $dark!important;
+    }
+}
+
+.btn_outline-success {
+    @include outlinetheme($theme: $success);
+    &:hover {
+        @include outlineHover($theme: $success);
+    }
+}
+
+.btn_outline-danger {
+    @include outlinetheme($theme: $danger);
+    &:hover {
+        @include outlineHover($theme: $danger);
+    }
+}
+
+.btn_outline-warning {
+    @include outlinetheme($theme: $warning);
+    &:hover {
+        @include outlineHover($theme: $warning);
+    }
+}
+
+.btn_outline-info {
+    @include outlinetheme($theme: $info);
+    &:hover {
+        @include outlineHover($theme: $info);
+    }
+}
+
+.btn_outline-dark {
+    @include outlinetheme($theme: $dark);
+    &:hover {
+        @include outlineHover($theme: $dark);
+    }
+}
+
+.btn_outline-light {
+    @include outlinetheme($theme: $light);
+}
+
+//01:Table
+.table {
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    tr {
+        padding: 1rem;
+        td,
+        th {
+            border:  1px solid rgba(170, 170, 170, 0.61);
+            padding: .5rem;
+            text-align: inherit;
+            text-align: -webkit-match-parent;
+        }
+    }
+}
+
+//02: Mark
+.mark,
+mark {
+    background: var(--dark-color);
+    color: var(--light-color);
+    padding: .215rem .3rem;
+    border-radius: $border-radius - .3rem;
+    display: inline-block;
+}
+
+input,
+textarea,
+select {
+    outline: 0;
+    height: 2.85rem;
+    padding: 0 1rem;
+    display: block;
+    background-color: unset;
+    width: 100%;
+    border-radius: $border-radius - .25rem;
+    appearance: none;
+    border: 1px solid #e8e9eb;
+    &::placeholder {
+        font-family: Montserrat, sans-serif;
+        font-size: .875rem;
+        font-weight: 300;
+    }
+    &:focus {
+        outline: 1px solid var(--secondary-color);
+    }
+}
+
+input[type="file"] {
+    @extend %flexcenter;
+    height: 100%;
+    color: var(--dark-color);
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    @extend %btn;
+    background: var(--primary-color);
+    color: var(--light-color);
+}
+
+textarea {
+    resize: vertical;
+    padding: 1rem;
+    height: auto;
+}
+
+select,
+button {
+    text-transform: none;
+}
+
+select::marker {
+    color: var(--dark-color);
+    opacity: 1;
+    display: block;
+    visibility: visible;
+}
+
+//03: Card
+.o_card {
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow);
+    position: relative;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border-radius: $border-radius;
+    .card_img {
+        width: 100%;
+    }
+    .card_content {
+        flex: 1 1 auto;
+        padding: 1rem;
+    }
+}
+
+.card {
+    padding: .875rem;
+    box-shadow: var(--shadow);
+}
+
+//Navbar
+.nav_bar {
+    width: 100%;
+    padding: 1rem 0;
+    transition: all .4s ease-in;
+    z-index: 999;
+    .nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    &[class*="bg_"] {
+        .nav_icon {
+            filter: invert(1);
+        }
+        &.bg_light {
+            .nav_icon {
+                filter: invert(0);
+            }
+            .menu {
+                color: var(--dark-color);
+            }
+        }
+    }
+}
+
+//Navicon
+.nav_toggler {
+    display: none;
+    cursor: pointer;
+}
+
+.nav_icon {
+    @extend %navicon;
+    background: url('https://image.flaticon.com/icons/png/512/130/130917.png');
+    transition: all .2s;
+}
+
+.nav_toggler.close .nav_icon {
+    @extend %navicon;
+    background: url("https://image.flaticon.com/icons/png/512/748/748122.png");
+    transform: scale(.8);
+}
+
+//Navigation
+.navigation {
+    .menu {
+        display: flex;
+        list-style: none!important;
+        color: var(--light-color);
+        @extend %reset;
+        .nav_item {
+            text-align: center;
+            .nav_link {
+                padding: .6rem 1rem;
+                text-decoration: none;
+                font-weight: 500;
+                color: inherit;
+                font-size: 1rem;
+                cursor: pointer;
+                opacity: 1;
+                &:hover {
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
+}
+
+//NavBar media 
+@media (max-width:991px) {
+    .nav_toggler {
+        display: block;
+    }
+    .navigation {
+        background: var(--navigation);
+        flex: 0 0 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s var(--e-in-out-circ);
+        .menu {
+            flex-direction: column;
+            .nav_item {
+                line-height: 2;
+            }
+        }
+        &.active {
+            max-height: 560px;
+        }
+    }
+}
+
+.tab {
+    display: flex;
+    @extend %reset;
+    .tab_link {
+        @extend %btn;
+        &.active {
+            background: var(--primary-color);
+            color: var(--light-color);
+        }
+    }
+}
+
+.dropdown_item {
+    display: block;
+    color: var(--dark-color);
+    font-weight: 500;
+}
+
+@media (min-width:991px) {
+    .dropdown {
+        text-decoration: none;
+        cursor: pointer;
+        position: relative;
+    }
+    .dropdown_menu {
+        position: absolute;
+        top: 1.5rem;
+        left: 0;
+        margin: .35rem 0;
+        z-index: 999;
+        padding: 1.2rem;
+        width: max-content;
+        background: var(--light-color);
+        border-radius: $border-radius;
+        text-align: left;
+        .dropdown_item {
+            text-decoration: none;
+            line-height: 2;
+        }
+    }
+}
+
+//accordion
+.accordion {
+    background: var(--light-color);
+    cursor: pointer;
+    padding: $accordion-padding;
+    transition: 0.4s;
+    box-shadow: var(--shadow);
+    &::after {
+        content: '\002B';
+        color: var(--dark-color);
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+    }
+    &.active:after {
+        content: "\2212";
+    }
+}
+
+.panel {
+    padding: 0 $accordion-padding;
+    background: var(--light-color);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+//Badge
+.badge {
+    display: inline-block;
+    color: var(--light-color);
+    padding: $badge-padding;
+    border-radius: $badge-border-radius;
+}
+
+//Breadcumbs
+.breadcrumbs {
+    list-style: none;
+    display: flex;
+    padding: $breadcrumbs-padding;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.breadcrumbs li {
+    margin: 0;
+}
+
+.breadcrumbs li+li:before {
+    padding: 8px!important;
+    color: var(--dark-color);
+    font-size: $breadcrumbs-size!important;
+    content: '/';
+}
+
+.breadcrumbs.typ_1 li+li:before {
+    content: "›";
+}
+
+.breadcrumbs.typ_2 li+li:before {
+    content: "—";
+}
+
+.breadcrumbs.typ_3 li+li:before {
+    content: "→";
+}
+
+.breadcrumbs.typ_4 li+li:before {
+    content: "•";
+}
+
+//cursor
+.c_pointer {
+    cursor: pointer;
+}
+
+//pagination
+.pagination {
+    @extend %reset;
+    list-style: none;
+    display: flex;
+    .page_item {
+        display: inline-block;
+        padding: $pagination-padding;
+        border-radius: $border-radius - .3rem;
+        background-color: var(--light-color);
+        border: 1px solid var(--secondary-color);
+        margin: 1px;
+        cursor: pointer;
+        transition: all .3s var(--e-in-out-circ);
+        &:hover {
+            background: var(--primary-color);
+            color: var(--light-color);
+        }
+    }
+}
+
+//Progress
+
+.progress { 
+    height: $progress-height; 
+    position: relative;
+    background: var(--secondary-color-lighter);
+    margin: 1px;
+    border-radius: $border-radius - .3rem;
+    overflow: hidden;
+    span {
+        display: block;
+        height: 100%;
+        background-color: $progress-bg;
+        position: relative;
+    }
+}
+
+//Modal
+.modal_window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: $modal-bg;
+    z-index: 999;
+    @extend .g_center;
+    .modal {
+        max-width: 700px;
+        margin: 1rem;
+        overflow: scroll;
+        background: #fff;
+        color: var(--dark-color);
+        padding: 1rem;
+        border-radius: $border-radius;
+    }
+    .modal_close {
+        border: none;
+        cursor: pointer;
+    }
+}
+
+// Tooltip Magic
+
+  [data-tooltip][tabindex="0"] {
+    display: inline-block;
+    position: relative;
+    cursor: text;
+    
+    &::after {
+      display: none;
+      position: absolute;
+      bottom: 110%;
+      left: 50%;
+      padding: 5px 10px;
+      max-width: 200px;
+      transform: translateX(-50%);
+      border-radius: $border-radius - .3rem;
+      color: $tooltip-color;
+      white-space: nowrap;
+      background-color: $tooltip-background;
+      pointer-events: none;
+      content: attr(data-tooltip);
+    }
+    
+    // Create a neat little arrow
+    &::before {
+      display: none;
+      position: absolute;
+      bottom: 110%;
+      left: 50%;
+      z-index: 2;
+      transform: translate(-50%, 50%) rotate(45deg);
+      width: 6px;
+      height: 6px;
+      border-width: 0 1px 1px 0;
+      background-color: $tooltip-background;
+      content: '';
+    }
+    
+    // Activate tooltip
+    &:focus,
+    &:hover {
+      &::after,
+      &::before {
+        display: block;
+      }
+    }
+    
+    // Different directions
+    &[data-side="right"] {
+      &::after,
+      &::before {
+        bottom: 50%;
+        left: 100%;
+        margin-left: 10px;
+      }
+      
+      &::after {
+        transform: translate(0, 50%);
+      }
+      
+      &::before {
+        transform: translate(-50%, 50%) rotate(135deg);
+      }
+    }
+    
+    &[data-side="bottom"] {
+      &::after,
+      &::before {
+        bottom: auto;
+        top: 110%;
+      }
+      
+      &::after {
+        transform: translate(-50%, 0);
+      }
+      
+      &::before {
+        transform: translate(-50%, -50%) rotate(225deg);
+      }
+    }
+    
+    &[data-side="left"] {
+      &::after,
+      &::before {
+        right: 100%;
+        bottom: 50%;
+        left: auto;
+        margin-right: 10px;
+      }
+      
+      &::after {
+        transform: translate(0, 50%);
+      }
+      
+      &::before {
+        transform: translate(50%, 50%) rotate(315deg);
+      }
+    }
+  }
